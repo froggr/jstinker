@@ -11,6 +11,11 @@ body {
     float: right;
 }
 
+.lead {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
 .editors {
     margin: 0px 0px 0 217px;
     padding: 10px;
