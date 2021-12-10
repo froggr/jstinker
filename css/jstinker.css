@@ -1,5 +1,5 @@
 body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
     line-height: 1.42857143;
     color: #333;
@@ -23,7 +23,25 @@ body {
     background: #F6F6F6;
 }
 
-.top, .bottom {
+.nosidebar .editors {
+    margin: 0px;
+}
+
+.notop .top {
+    display: none;
+}
+
+.notop .bottom,
+.notop .editor {
+    height: 90vh;
+}
+
+.nosidebar #sidebar {
+    left: 500px;
+}
+
+.top,
+.bottom {
     width: 100%;
     height: 50%;
     overflow: hidden;
@@ -114,11 +132,13 @@ body {
     box-shadow: none;
 }
 
-.dropdown, .panel .panel-heading{
+.dropdown,
+.panel .panel-heading {
     text-align: center;
 }
 
-.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+.panel-group .panel-heading+.panel-collapse>.list-group,
+.panel-group .panel-heading+.panel-collapse>.panel-body {
     border-top: none;
 }
 
@@ -143,8 +163,7 @@ body {
     box-shadow: none;
 }
 
-Radio Check Labels 
-.radio label,
+Radio Check Labels .radio label,
 .radio-inline label,
 .checkbox label,
 .checkbox-inline label {
@@ -315,7 +334,8 @@ input[type="checkbox"]:checked:after,
     font-size: 14px;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     margin-bottom: 5px;
 }
@@ -323,7 +343,7 @@ input, textarea {
 .ext_res {
     width: 155px;
 }
-    
+
 .langcontainer {
     float: left;
     width: 85px;

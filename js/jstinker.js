@@ -1,4 +1,4 @@
-$("document").ready(function () {
+$("document").ready(function() {
     var libs = {};
 
     // List of Frameworks & Extensions
@@ -206,7 +206,7 @@ $("document").ready(function () {
     };
 
     // example code 
-    $("#exampleMenu li a").click(function (event) {
+    $("#exampleMenu li a").click(function(event) {
         event.preventDefault();
 
         $(".extra").remove();
@@ -226,7 +226,7 @@ $("document").ready(function () {
     });
 
     // Frameworks & Extensions Dropdown
-    $("#dropdownMenu1 li a").click(function (event) {
+    $("#dropdownMenu1 li a").click(function(event) {
         event.preventDefault();
 
         $(".extra").remove();
@@ -243,7 +243,7 @@ $("document").ready(function () {
     });
 
     // Script Injection Dropdown
-    $("#dropdownMenu2 li a").click(function (event) {
+    $("#dropdownMenu2 li a").click(function(event) {
         event.preventDefault();
 
         var dropdown = $(this).parents('.btn-group');
@@ -253,7 +253,7 @@ $("document").ready(function () {
     });
 
     // Doctype Dropdown
-    $("#dropdownMenu3 li a").click(function (event) {
+    $("#dropdownMenu3 li a").click(function(event) {
         event.preventDefault();
 
         var dropdown = $(this).parents('.btn-group');
@@ -263,7 +263,7 @@ $("document").ready(function () {
     });
 
     // HTML Dropdown
-    $("#dropdownMenu4 li a").click(function (event) {
+    $("#dropdownMenu4 li a").click(function(event) {
         event.preventDefault();
 
         var dropdown = $(this).parents('.btn-group');
@@ -273,7 +273,7 @@ $("document").ready(function () {
     });
 
     // CSS Dropdown
-    $("#dropdownMenu5 li a").click(function (event) {
+    $("#dropdownMenu5 li a").click(function(event) {
         event.preventDefault();
 
         var dropdown = $(this).parents('.btn-group');
@@ -283,7 +283,7 @@ $("document").ready(function () {
     });
 
     // Javascript Dropdown
-    $("#dropdownMenu6 li a").click(function (event) {
+    $("#dropdownMenu6 li a").click(function(event) {
         event.preventDefault();
 
         var dropdown = $(this).parents('.btn-group');
@@ -292,8 +292,18 @@ $("document").ready(function () {
         dropdown.find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
     });
 
+    $('.navbar-brand').click(function() {
+        $('body').toggleClass('nosidebar');
+
+    });
+
+    $('#topDisplay').click(function() {
+        $('body').toggleClass('notop');
+        jsEditor.resize();
+    })
+
     // RUN Button
-    $("#btnRun").click(function (event) {
+    $("#btnRun,.runPreview").click(function(event) {
         event.preventDefault();
 
         var previewDoc = window.frames[0].document;
@@ -306,13 +316,13 @@ $("document").ready(function () {
         var lib = frameworks[dropdownMenu1Sel];
         var extra_libs = []
         $("#dropdownMenu1").parents('.btn-group').find('input:checked').parent().each(
-            function () { extra_libs.push($(this).text().trim()); }
+            function() { extra_libs.push($(this).text().trim()); }
         );
         var dropdownMenu2Sel = $("#dropdownMenu2").parents('.btn-group').find('.dropdown-toggle').text().trim();
-
         previewDoc.write("<!DOCTYPE html>");
         previewDoc.write("<html>");
         previewDoc.write("<head>");
+        previewDoc.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">');
         previewDoc.write("<style type='text/css'>" + css + "</style>");
         if (lib)
             previewDoc.write("<script src=" + lib + " type='text/javascript'></script>");
@@ -332,8 +342,9 @@ $("document").ready(function () {
         previewDoc.write("</head>");
         previewDoc.write("<body>");
         previewDoc.write(html);
-        if (dropdownMenu2Sel == "No wrap - in body")
+        if (dropdownMenu2Sel == "No wrap - in body") {
             previewDoc.write("<script type='text/javascript'>" + script + "</script>");
+        }
         previewDoc.write("</body>");
         previewDoc.write("</html>");
         previewDoc.close();
@@ -343,7 +354,7 @@ $("document").ready(function () {
     $("#btnRun").click();
 
     // TIDYUP Button
-    $("#btnTidyUp").click(function (event) {
+    $("#btnTidyUp").click(function(event) {
         event.preventDefault();
 
         var html = ace.edit("html-editor").getSession().getValue();
@@ -363,14 +374,14 @@ $("document").ready(function () {
     });
 
     // Together Button
-    $("#btnTogether").click(function (event) {
+    $("#btnTogether").click(function(event) {
         event.preventDefault();
 
         TogetherJS(this);
         return false;
     });
 
-    $("#btnSave").click(function (event) {
+    $("#btnSave").click(function(event) {
         event.preventDefault();
         localStorage.setItem('html', htmlEditor.getValue());
         localStorage.setItem('css', cssEditor.getValue());
@@ -379,7 +390,7 @@ $("document").ready(function () {
     });
 
 
-    $("#btnLoad").click(function (event) {
+    $("#btnLoad").click(function(event) {
         event.preventDefault();
         htmlEditor.setValue(localStorage.getItem('html'), -1);
         cssEditor.setValue(localStorage.getItem('css'), -1);
