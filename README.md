@@ -1,4 +1,6 @@
-# JSTinker
+# homeschool JSTinker
+
+Forked this from johncipponeri/jstinker
 
 An open source clone of [JSFiddle](http://jsfiddle.net/), this project was made to provide insight into how something like this is created. My goal was to mimic as many of JSFiddle's features as possible in an offline environment. No accounts or internet connection totally necessary (besides online resources).
 
